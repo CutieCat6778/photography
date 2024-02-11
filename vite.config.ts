@@ -7,9 +7,9 @@ export default defineConfig({
   plugins: [
     ViteImageOptimizer({
       test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
-      exclude: /^(?!.*dist).*$/,
+      exclude: undefined,
       include: undefined,
-      includePublic: true,
+      includePublic: false,
       logStats: true,
       ansiColors: true,
       svg: {
