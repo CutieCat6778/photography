@@ -27,7 +27,7 @@ const background_glob: Record<string, any> = import.meta.glob(
 	}
 );
 
-const grid_glob: Record<string, any> = import.meta.glob("/public/**/banner.*", {
+const grid_glob: Record<string, any> = import.meta.glob("/public/**/banner*.*", {
 	eager: true,
 });
 
