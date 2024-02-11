@@ -52,7 +52,7 @@ export default defineConfig({
       },
       gif: {},
       webp: {
-        lossless: true,
+        quality: 80,
       },
       avif: {
         lossless: true,
