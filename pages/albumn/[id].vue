@@ -48,7 +48,7 @@ function calculateGrid(name: string): string {
 
 <template>
 	<div class="m-10 grid gap-2  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-		<div :class="`rounded-lg ${calculateGrid(image)} flex justify-center items-center`" v-for="(image, key) of images" :key="key">
+		<div :class="`rounded-lg ${calculateGrid(image)}`" v-for="(image, key) of images" :key="key">
 			<NuxtImg :src="image" :alt="image" :class="`rounded-lg h-[500px] object-cover`" height="1000px"/>
 		</div>
 	</div>
