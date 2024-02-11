@@ -1,6 +1,25 @@
 <script setup lang="ts">
 import GridItemBanner from "./components/GridItemBanner.vue";
 
+useHead({
+  link: [
+    {
+      rel: 'preconnect',
+      href: 'https://fonts.googleapis.com'
+    },
+	{
+      rel: 'preconnect',
+      href: 'https://fonts.gstatic.com',
+	  crossorigin: 'anonymous'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Anton&display=swap',
+      crossorigin: ''
+    }
+  ]
+})
+
 const background_glob: Record<string, any> = import.meta.glob(
 	"/public/bg/*.webp",
 	{
@@ -40,8 +59,8 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 			"
 			alt="A background image"
 			class="absolute -z-10 h-screen w-screen object-cover"
-			:height="windowHeight"
-			:width="windowWidth"
+			:height="isWindowAvailable && windowHeight ? windowHeight : undefined"
+			:width="isWindowAvailable && windowWidth ? windowWidth : undefined"
 			fit="cover"
 		/>
 	</header>
@@ -87,23 +106,35 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 
 <script lang="ts">
 export default {
-	data() {
-		return {
-			windowWidth: window.innerWidth,
-			windowHeight: window.innerHeight,
-		};
-	},
-	mounted() {
-		window.addEventListener("resize", this.handleResize);
-	},
-	beforeDestroy() {
-		window.removeEventListener("resize", this.handleResize);
-	},
-	methods: {
-		handleResize() {
-			this.windowWidth = window.innerWidth;
-			this.windowHeight = window.innerHeight;
-		},
-	},
+  data() {
+	const data: {
+		windowWidth: number | null,
+		windowHeight: number | null,
+		isWindowAvailable: boolean
+	} =  {
+      windowWidth: null,
+      windowHeight: null,
+      isWindowAvailable: typeof window !== 'undefined'
+    }
+    return data;
+  },
+  mounted() {
+    if (this.isWindowAvailable) {
+      this.handleResize(); // Initialize dimensions
+      window.addEventListener('resize', this.handleResize);
+    }
+  },
+  beforeDestroy() {
+    if (this.isWindowAvailable) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+  },
+  methods: {
+    handleResize() {
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
+    }
+  }
 };
 </script>
+
