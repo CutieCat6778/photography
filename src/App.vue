@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	const glob: Record<string, any> = import.meta.glob("/public/bg/*.jpg", { eager: true });
+	const glob: Record<string, any> = import.meta.glob("/public/bg/*.webp", { eager: true });
 	const images = Object.entries(glob).map(([string]) => string.replace("/public", ""));
 	console.log(images)
 </script>
