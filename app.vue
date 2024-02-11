@@ -121,8 +121,7 @@ export default {
   },
   mounted() {
     if (this.isWindowAvailable) {
-      this.handleResize(); // Initialize dimensions
-      window.addEventListener('resize', this.handleResize);
+      this.handleResize();
     }
   },
   beforeDestroy() {
