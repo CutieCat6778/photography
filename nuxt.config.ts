@@ -16,5 +16,8 @@ export default defineNuxtConfig({
       '2xl': 1536
     },
     densities: [1, 2],
+    app: {
+      head: {}
+    }
   },
 })
