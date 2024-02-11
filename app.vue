@@ -62,6 +62,7 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 			:height="isWindowAvailable && windowHeight ? windowHeight : undefined"
 			:width="isWindowAvailable && windowWidth ? windowWidth : undefined"
 			fit="cover"
+			quality="100"
 		/>
 	</header>
 	<section class="w-full flex items-center flex-col p-10">
@@ -87,7 +88,7 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 				new adventure and opportunity for growth.
 			</p>
 			<img
-				class="mt-10 rounded-lg"
+				class="mt-10 rounded-lg object-cover"
 				src="/section/final-1-2.webp"
 				alt="My friend and me"
 				height="960px"

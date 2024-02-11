@@ -5,5 +5,5 @@
 </script>
 
 <template>
-    <LazyNuxtImg class="rounded-lg aspect-[4/5]" fit="cover" height="438px" width="350px" :src="data.toString()" :alt="data.toString()"/>
+    <LazyNuxtImg class="rounded-lg aspect-[4/5] object-cover" fit="cover" height="438px" width="350px" :src="data.toString()" :alt="data.toString()"/>
 </template>
