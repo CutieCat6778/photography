@@ -49,10 +49,43 @@ function calculateGrid(name: string): string {
 <template>
 	<div class="m-10 grid gap-2  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 		<div :class="`rounded-lg ${calculateGrid(image)}`" v-for="(image, key) of images" :key="key">
-			<NuxtImg :src="image" :alt="image" :class="`rounded-lg h-[500px] object-cover`" height="1000px"/>
+			<NuxtImg :src="image" :alt="image" :class="`rounded-lg h-auto object-cover`" :width="isWindowAvailable && windowWidth ? windowWidth : '960px'"/>
 		</div>
 	</div>
-    <div class="w-screen justify-center items-center flex" >
+    <div class="w-full justify-center items-center flex" >
         <NuxtLink to="/"><h2 class=" hover:opacity-25">Go Back</h2></NuxtLink>
     </div>
 </template>
+
+<script lang="ts">
+export default {
+	data() {
+		const data: {
+			windowWidth: number | null;
+			windowHeight: number | null;
+			isWindowAvailable: boolean;
+		} = {
+			windowWidth: null,
+			windowHeight: null,
+			isWindowAvailable: typeof window !== "undefined",
+		};
+		return data;
+	},
+	mounted() {
+		if (this.isWindowAvailable) {
+			this.handleResize();
+		}
+	},
+	beforeDestroy() {
+		if (this.isWindowAvailable) {
+			window.removeEventListener("resize", this.handleResize);
+		}
+	},
+	methods: {
+		handleResize() {
+			this.windowWidth = window.innerWidth;
+			this.windowHeight = window.innerHeight;
+		},
+	},
+};
+</script>
