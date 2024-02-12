@@ -40,11 +40,6 @@ export default defineNuxtConfig({
           content: description
         },
         {
-          hid: 'fb:app_id',
-          property: 'fb:app_id',
-          content: process.env.FACEBOOK_APP_ID || 'example'
-        },
-        {
           hid: 'fb:type',
           property: 'fb:type',
           content: domain

@@ -1,21 +1,12 @@
 <script setup lang="ts">
 import GridItemBanner from "../components/GridItemBanner.vue";
 
-const background_glob: Record<string, any> = import.meta.glob(
-	"/public/bg/*.webp",
+const grid_glob: Record<string, any> = import.meta.glob(
+	"/public/**/banner*.webp",
 	{
 		eager: true,
 	}
 );
-
-const grid_glob: Record<string, any> = import.meta.glob("/public/**/banner*.webp", {
-	eager: true,
-});
-
-const background_images = Object.entries(background_glob).map(([string]) =>
-	string.replace("/public", "")
-);
-
 const grid_images = Object.entries(grid_glob).map(([string]) =>
 	string.replace("/public", "")
 );
@@ -36,17 +27,13 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 		</div>
 
 		<NuxtImg
-			:src="
-				background_images[
-					Math.round(Math.random() * (background_images.length - 1))
-				]
-			"
+			src="/bg/final-6.webp"
 			alt="A background image"
 			class="absolute -z-10 h-screen w-screen object-cover"
 			:height="
-				isWindowAvailable && windowHeight ? windowHeight : undefined
+				isWindowAvailable && windowHeight ? windowHeight : `900px`
 			"
-			:width="isWindowAvailable && windowWidth ? windowWidth : undefined"
+			:width="isWindowAvailable && windowWidth ? windowWidth : `1200px`"
 			fit="cover"
 			quality="100"
 		/>
