@@ -10,17 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "imagemin": "^8.0.1",
-    "imagemin-jpegtran": "^7.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "imagemin-webp": "^8.0.0",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5",
-    "vue-window-size": "^2.0.0"
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
     "@nuxt/image": "latest",
-    "@nuxtjs/tailwindcss": "latest"
+    "@nuxtjs/tailwindcss": "latest",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^8.0.0"
   }
 }
