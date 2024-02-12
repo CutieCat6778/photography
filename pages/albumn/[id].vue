@@ -15,7 +15,6 @@ const images = Object.entries(image_glob)
 	);
 
 function calculateGrid(name: string): string {
-    console.log(name, name.includes("-p-"), name.includes("-pp-"))
     if(name.includes("-p-")) {
         return "grid-large"
     } else if (name.includes("-pp-")) {

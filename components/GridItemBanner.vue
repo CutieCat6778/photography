@@ -1,7 +1,5 @@
 <script setup lang="ts">
     const {data, index} = defineProps(['data', 'index'])
-    console.log(data, index)
-
 </script>
 
 <template>
