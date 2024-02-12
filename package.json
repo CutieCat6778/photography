@@ -16,6 +16,6 @@
   },
   "devDependencies": {
     "@nuxt/image": "latest",
-    "@nuxtjs/tailwindcss": "latest",
+    "@nuxtjs/tailwindcss": "latest"
   }
 }
