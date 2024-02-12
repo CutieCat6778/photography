@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import GridItemBanner from "../components/GridItemBanner.vue";
 
-useHead({
-	link: [
-		{
-			rel: "stylesheet",
-			href: "https://fonts.googleapis.com/css2?family=Anton&display=swap",
-			crossorigin: "",
-		},
-	],
-});
+useSeoMeta({
+	title: 'Thinh Nguyen | Photography',
+	ogTitle: 'Thinh Nguyen | Photography',
+	description: 'A personal photography portfolio, that showcase Thinh\' works over the times',
+	ogDescription: 'A personal photography portfolio, that showcase Thinh\' works over the times',
+	ogImage: 'https://thinis.de/_ipx/q_80&fit_cover&s_1280x960/section/final-1-2.webp',
+	twitterCard: 'summary_large_image',
+})
 
 const background_glob: Record<string, any> = import.meta.glob(
 	"/public/bg/*.webp",
@@ -34,7 +33,7 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 <template>
 	<header class="h-screen w-full flex justify-center items-center flex-col">
 		<div class="z-10 text-center">
-			<h1 class="z-10 text-white text-5xl sm:text-7xl font-bold">
+			<h1 class="z-10 text-white sm:text-6xl text-4xl font-bold">
 				Thinh Nguyen
 			</h1>
 			<h2 class="text-1xl sm:text-3xl text-[#e0e0e0] mt-3">
@@ -45,7 +44,7 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 			>
 		</div>
 
-		<LazyNuxtImg
+		<NuxtImg
 			:src="
 				background_images[
 					Math.round(Math.random() * (background_images.length - 1))
@@ -83,7 +82,7 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 				out with my camera or tinkering with code, every day brings a
 				new adventure and opportunity for growth.
 			</p>
-			<NuxtImg
+			<LazyNuxtImg
 				class="mt-10 rounded-lg object-cover h-auto w-auto"
 				src="/section/final-1-2.webp"
 				alt="My friend and me"

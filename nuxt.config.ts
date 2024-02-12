@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  nitro: {
+    compressPublicAssets: true,
+  },
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
   css: ["~/assets/global.css"],
   image: {
@@ -16,8 +18,18 @@ export default defineNuxtConfig({
       '2xl': 1536
     },
     densities: [1, 2],
-    app: {
-      head: {}
+  },
+  app: {
+    head: {
+      noscript: [
+        { children: 'JavaScript is required' }
+      ],
+      htmlAttrs: {
+        lang: 'en',
+      },
+      title: "Thinh Nguyen | Photography",
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
     }
   },
 })
