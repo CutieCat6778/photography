@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import GridItemBanner from "../components/GridItemBanner.vue";
 
-useSeoMeta({
-	title: 'Thinh Nguyen | Photography',
-	ogTitle: 'Thinh Nguyen | Photography',
-	description: 'A personal photography portfolio, that showcase Thinh\' works over the times',
-	ogDescription: 'A personal photography portfolio, that showcase Thinh\' works over the times',
-	ogImage: 'https://thinis.de/_ipx/q_80&fit_cover&s_1280x960/section/final-1-2.webp',
-	twitterCard: 'summary_large_image',
-})
-
 const background_glob: Record<string, any> = import.meta.glob(
 	"/public/bg/*.webp",
 	{
