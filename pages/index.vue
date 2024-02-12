@@ -4,15 +4,6 @@ import GridItemBanner from "../components/GridItemBanner.vue";
 useHead({
 	link: [
 		{
-			rel: "preconnect",
-			href: "https://fonts.googleapis.com",
-		},
-		{
-			rel: "preconnect",
-			href: "https://fonts.gstatic.com",
-			crossorigin: "anonymous",
-		},
-		{
 			rel: "stylesheet",
 			href: "https://fonts.googleapis.com/css2?family=Anton&display=swap",
 			crossorigin: "",
@@ -27,7 +18,7 @@ const background_glob: Record<string, any> = import.meta.glob(
 	}
 );
 
-const grid_glob: Record<string, any> = import.meta.glob("/public/**/banner*.*", {
+const grid_glob: Record<string, any> = import.meta.glob("/public/**/banner*.webp", {
 	eager: true,
 });
 
@@ -54,7 +45,7 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 			>
 		</div>
 
-		<NuxtImg
+		<LazyNuxtImg
 			:src="
 				background_images[
 					Math.round(Math.random() * (background_images.length - 1))
@@ -92,13 +83,14 @@ const grid_images = Object.entries(grid_glob).map(([string]) =>
 				out with my camera or tinkering with code, every day brings a
 				new adventure and opportunity for growth.
 			</p>
-			<img
-				class="mt-10 rounded-lg object-cover"
+			<NuxtImg
+				class="mt-10 rounded-lg object-cover h-auto w-auto"
 				src="/section/final-1-2.webp"
 				alt="My friend and me"
 				height="960px"
 				width="1280px"
 				fit="cover"
+				quality="80"
 			/>
 			<h2 class="my-10">Showcase</h2>
 			<div class="grid gap-2 lg:gap-4 grid-cols-3">
