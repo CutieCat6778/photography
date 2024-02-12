@@ -4,15 +4,6 @@ const route = useRoute();
 useHead({
 	link: [
 		{
-			rel: "preconnect",
-			href: "https://fonts.googleapis.com",
-		},
-		{
-			rel: "preconnect",
-			href: "https://fonts.gstatic.com",
-			crossorigin: "anonymous",
-		},
-		{
 			rel: "stylesheet",
 			href: "https://fonts.googleapis.com/css2?family=Anton&display=swap",
 			crossorigin: "",
@@ -22,7 +13,7 @@ useHead({
 
 const id = route.params.id;
 
-const image_glob: Record<string, any> = import.meta.glob("/public/**/**.*", {
+const image_glob: Record<string, any> = import.meta.glob("/public/**/**.webp", {
 	eager: true,
 });
 
