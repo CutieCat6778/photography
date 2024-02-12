@@ -1,16 +1,6 @@
 <script setup lang="ts">
 const route = useRoute();
 
-useHead({
-	link: [
-		{
-			rel: "stylesheet",
-			href: "https://fonts.googleapis.com/css2?family=Anton&display=swap",
-			crossorigin: "",
-		},
-	],
-});
-
 const id = route.params.id;
 
 const image_glob: Record<string, any> = import.meta.glob("/public/**/**.webp", {
@@ -21,7 +11,7 @@ const images = Object.entries(image_glob)
 	.map(([string]) => string.replace("/public", ""))
 	.filter(
 		(a) =>
-			(a.endsWith("jpg") || a.endsWith("png")) && a.startsWith(`/${id}`)
+			a.startsWith(`/${id}/`)
 	);
 
 function calculateGrid(name: string): string {
@@ -40,7 +30,7 @@ function calculateGrid(name: string): string {
 <template>
 	<div class="m-10 grid gap-2  grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 		<div :class="`rounded-lg ${calculateGrid(image)}`" v-for="(image, key) of images" :key="key">
-			<NuxtImg :src="image" :alt="image" :class="`rounded-lg h-auto object-cover`" :width="isWindowAvailable && windowWidth ? windowWidth : '960px'"/>
+			<NuxtImg :src="image" :alt="image" :class="`rounded-lg h-full object-cover`" :width="isWindowAvailable && windowWidth ? Math.round(windowWidth * 0.9) : '780px'"/>
 		</div>
 	</div>
     <div class="w-full justify-center items-center flex" >

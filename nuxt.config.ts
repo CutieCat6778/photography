@@ -16,8 +16,18 @@ export default defineNuxtConfig({
       '2xl': 1536
     },
     densities: [1, 2],
-    app: {
-      head: {}
+  },
+  app: {
+    head: {
+      noscript: [
+        { children: 'JavaScript is required' }
+      ],
+      htmlAttrs: {
+        lang: 'en',
+      },
+      title: "Thinh Nguyen | Photography",
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
     }
   },
 })
